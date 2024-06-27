@@ -5,9 +5,10 @@ interface CharacterFormProps {
   fetchCharacters: () => void;
   characterToEdit?: any;
   setCharacterToEdit: (character: any) => void;
+  closeModal: () => void;
 }
 
-const CharacterForm: React.FC<CharacterFormProps> = ({ fetchCharacters, characterToEdit, setCharacterToEdit }) => {
+const CharacterForm: React.FC<CharacterFormProps> = ({ fetchCharacters, characterToEdit, setCharacterToEdit, closeModal }) => {
   const [name, setName] = useState('');
   const [species, setSpecies] = useState('');
   const [homeworld, setHomeworld] = useState('');
@@ -33,25 +34,29 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ fetchCharacters, characte
     setSpecies('');
     setHomeworld('');
     fetchCharacters();
+    closeModal();
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">{characterToEdit ? 'Edit Character' : 'Create Character'}</h1>
+    <div className="w-full max-w-sm mx-auto">
+      <h1 className="text-3xl font-bold mb-4 text-center">{characterToEdit ? 'Edit Character' : 'Create Character'}</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-300">Name</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="mt-1 p-2 border border-gray-700 rounded-md w-full bg-gray-800 text-white" />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="mt-1 p-2 border border-gray-700 rounded-md w-full bg-dark-700 text-white" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-300">Species</label>
-          <input type="text" value={species} onChange={(e) => setSpecies(e.target.value)} className="mt-1 p-2 border border-gray-700 rounded-md w-full bg-gray-800 text-white" />
+          <input type="text" value={species} onChange={(e) => setSpecies(e.target.value)} className="mt-1 p-2 border border-gray-700 rounded-md w-full bg-dark-700 text-white" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-300">Homeworld</label>
-          <input type="text" value={homeworld} onChange={(e) => setHomeworld(e.target.value)} className="mt-1 p-2 border border-gray-700 rounded-md w-full bg-gray-800 text-white" />
+          <input type="text" value={homeworld} onChange={(e) => setHomeworld(e.target.value)} className="mt-1 p-2 border border-gray-700 rounded-md w-full bg-dark-700 text-white" />
         </div>
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">{characterToEdit ? 'Update' : 'Create'}</button>
+        <div className="flex justify-end">
+          <button type="button" onClick={closeModal} className="bg-gray-600 text-white px-4 py-2 rounded-md mr-2">Cancel</button>
+          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">{characterToEdit ? 'Update' : 'Create'}</button>
+        </div>
       </form>
     </div>
   );

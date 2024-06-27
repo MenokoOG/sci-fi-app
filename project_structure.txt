@@ -1,0 +1,30 @@
+.
+├── README.md
+├── backend
+│   ├── __pycache__
+│   ├── main.py
+│   └── requirements.txt
+├── env
+│   ├── bin
+│   ├── include
+│   ├── lib
+│   ├── lib64 -> lib
+│   └── pyvenv.cfg
+├── frontend
+│   ├── README.md
+│   ├── index.html
+│   ├── node_modules
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── public
+│   ├── src
+│   ├── tailwind.config.js
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.node.json
+│   └── vite.config.ts
+├── project_structure.txt
+└── render.yaml
+
+11 directories, 16 files
