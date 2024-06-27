@@ -1,0 +1,74 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+
+# FastAPI/Python environment variable file
+backend/.env
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node modules
+node_modules/
+
+# Vite build output
+dist/
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Tailwind CSS generated files
+*.css
+*.css.map
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variable files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
