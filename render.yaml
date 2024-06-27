@@ -4,15 +4,17 @@ services:
     type: web
     env: python
     plan: free
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port 10000
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
     envVars:
       - key: MONGODB_URI
-        value: "your_mongodb_connection_string"
+        value: "mongodb+srv://jefftkddan:AocetUls99bS7EKl@cluster0.vva0aat.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
   - name: sci-fi-app-frontend
     type: web
     env: static
     plan: free
-    buildCommand: npm install && npm run build --prefix frontend
-    staticPublishPath: frontend/dist
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
