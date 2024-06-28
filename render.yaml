@@ -1,18 +1,21 @@
-# render.yaml
 services:
-  - name: sci-fi-app-backend
-    type: web
+  - type: web
+    name: sci-fi-app-backend
     env: python
     plan: free
-    rootDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
-    
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port 8000
+    envVars:
+      - key: MONGODB_URI
+        value: YOUR_MONGODB_URI
+    autoDeploy: true
+    env: 
+      PYTHON_VERSION: "3.9"
 
-  - name: sci-fi-app-frontend
-    type: web
+  - type: static
+    name: sci-fi-app-frontend
     env: static
     plan: free
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
+    buildCommand: cd frontend && npm install && npm run build
+    publishPath: frontend/dist
+    autoDeploy: true
